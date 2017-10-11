@@ -7,7 +7,7 @@ object RebuildContigmapTest extends BiopetTest {
   @Test
   def testNoArgs(): Unit = {
     intercept[IllegalArgumentException] {
-      ToolTemplate.main(Array())
+      RebuildContigmap.main(Array())
     }
   }
 }
