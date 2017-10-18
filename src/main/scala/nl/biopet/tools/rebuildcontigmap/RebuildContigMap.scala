@@ -2,7 +2,7 @@ package nl.biopet.tools.rebuildcontigmap
 
 import java.io.PrintWriter
 
-import nl.biopet.utils.ngs.FastaUtils
+import nl.biopet.utils.ngs.fasta
 import nl.biopet.utils.tool.ToolCommand
 
 object RebuildContigMap extends ToolCommand {
@@ -13,12 +13,12 @@ object RebuildContigMap extends ToolCommand {
 
     logger.info("Start")
 
-    val newMap = FastaUtils.rebuildContigMap(cmdArgs.inputContigMap, cmdArgs.referenceFasta)
+    val newMap = fasta.rebuildContigMap(cmdArgs.inputContigMap, cmdArgs.referenceFasta)
 
     val writer = new PrintWriter(cmdArgs.outputContigMap)
     writer.println("#Name_in_fasta\tAlternative_names")
-    for ((contigName, alternitiveNames) <- newMap) {
-      writer.println(contigName + "\t" + alternitiveNames.mkString(";"))
+    for ((contigName, alternativeNames) <- newMap) {
+      writer.println(contigName + "\t" + alternativeNames.mkString(";"))
     }
     writer.close()
 
