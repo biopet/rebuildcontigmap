@@ -5,7 +5,7 @@ import java.io.PrintWriter
 import nl.biopet.utils.ngs.fasta
 import nl.biopet.utils.tool.ToolCommand
 
-object RebuildContigMap extends ToolCommand {
+object RebuildContigMap extends ToolCommand[Args] {
   def main(args: Array[String]): Unit = {
     val parser = new ArgsParser(toolName)
     val cmdArgs =
