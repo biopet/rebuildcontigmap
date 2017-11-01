@@ -8,6 +8,7 @@ import org.testng.annotations.Test
 import scala.io.Source
 
 class RebuildContigMapTest extends ToolTest[Args] {
+  def toolCommand: RebuildContigMap.type = RebuildContigMap
   @Test
   def testNoArgs(): Unit = {
     intercept[IllegalArgumentException] {
