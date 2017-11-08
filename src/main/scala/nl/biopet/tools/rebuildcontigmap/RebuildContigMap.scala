@@ -13,7 +13,8 @@ object RebuildContigMap extends ToolCommand[Args] {
 
     logger.info("Start")
 
-    val newMap = fasta.rebuildContigMap(cmdArgs.inputContigMap, cmdArgs.referenceFasta)
+    val newMap =
+      fasta.rebuildContigMap(cmdArgs.inputContigMap, cmdArgs.referenceFasta)
 
     val writer = new PrintWriter(cmdArgs.outputContigMap)
     writer.println("#Name_in_fasta\tAlternative_names")
