@@ -25,4 +25,25 @@ object RebuildContigMap extends ToolCommand[Args] {
 
     logger.info("Done")
   }
+
+  def descriptionText: String =
+    """
+      |This tool rebuilds a contig map, so the contig names used
+      |are equal to those in a given fasta reference.
+    """.stripMargin
+
+  def manualText: String =
+    s"""
+      |$toolName requires the original contig map and a reference fasta file.
+      |It will then reconstruct the contig map and output it at the given path.
+      |Contig maps should be in tsv format.
+    """.stripMargin
+
+  def exampleText: String =
+    s"""
+       |To construct a new contig map with contig names that match the fasta
+       |reference:
+       |
+       |${(example("-I", "oldContigMap.tsv", "-R", "reference.fasta", "-o", "newContigMap.tsv"))}
+     """.stripMargin
 }
