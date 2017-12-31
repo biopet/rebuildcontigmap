@@ -9,6 +9,12 @@ import scala.io.Source
 
 class RebuildContigMapTest extends ToolTest[Args] {
   def toolCommand: RebuildContigMap.type = RebuildContigMap
+
+  /**
+    * Simple tool that does not need elaborate description.
+    * @return Minimum number of words in the description.
+    */
+  override def minDescriptionWords = 20
   @Test
   def testNoArgs(): Unit = {
     intercept[IllegalArgumentException] {
